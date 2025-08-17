@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMALA PASHAM | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <h1>AMALA PASHAM</h1>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+      </ul>
+      <div class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </header>
+
+<!-- Home Section -->
+<section id="home">
+  <h1 class="typing">Hi, I'm <span class="name">AMALA PASHAM</span><span class="cursor">;</span></h1>
+  <p>Welcome to my portfolio website</p>
+</section>
+
+
+  <!-- About Section -->
+  <section id="about" class="reveal">
+    <h2>About Me</h2>
+    <p>
+      I am a passionate developer, motivated and detail-oriented DevOps Engineer with hands-on experience in designing, implementing, and managing CI/CD pipelines, cloud infrastructure, and automation tools. My expertise lies in leveraging modern DevOps practices to optimize deployment workflows, improve scalability, and ensure high system reliability.
+    </p>
+    <div class="social-icons">
+      <a href="https://www.linkedin.com/in/amala-pasham-0a23ab355?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:amalap11413@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="/resume.pdf" download aria-label="Amala_resume"><i class="fas fa-file-arrow-down"></i></a>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="reveal">
+    <h2>Education</h2>
+    <div class="education-container">
+      <div class="education-block">
+        <p><strong>Bachelor of Technology</strong> in Electronics and Communication Engineering — Medak College of Engineering and Technology (2015)</p>
+      </div>
+      <div class="education-block">
+        <p><strong>Intermediate</strong> — Gurukrupa Junior College, Siddipet (2011)</p>
+      </div>
+      <div class="education-block">
+        <p><strong>SSC</strong> — Z.P.H.S Duddeda High School (2009)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-container">
+    <span class="skill-item">Git</span>
+    <span class="skill-item">Docker</span>
+    <span class="skill-item">Jenkins</span>
+    <span class="skill-item">Ansible</span>
+    <span class="skill-item">AWS</span>
+    <span class="skill-item">Kubernetes</span>
+    <span class="skill-item">Maven</span>
+    <span class="skill-item">Terraform</span>
+    <span class="skill-item">Linux</span>
+
+  </div>
+</section>
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="reveal">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>CI/CD Pipeline Deployment with AWS</h3>
+        <p>Implemented an automated CI/CD pipeline to deploy reference source code to an Apache Tomcat web server using AWS services and DevOps tools.</p>
+      </div>
+      <div class="project-card">
+        <h3>3-Tier Architecture</h3>
+        <p>Designed and implemented a scalable 3-tier application architecture with separate layers for presentation, business logic, and data.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="reveal">
+    <h2>Get in Touch</h2>
+    <div class="contact-links">
+      <p>Feel free to reach out to me via email or connect with me on LinkedIn.</p>
+      <a href="mailto:amalap11413@gmail.com"><i class="fas fa-envelope"></i> amalap11413@gmail.com</a>
+      <a href="https://www.linkedin.com/in/amala-pasham-0a23ab355?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 AMALA PASHAM | All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links li a');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Active Nav Highlight on Scroll
+    window.addEventListener('scroll', () => {
+      let fromTop = window.scrollY + 100;
+      links.forEach(link => {
+        let section = document.querySelector(link.getAttribute("href"));
+        if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+          links.forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+        }
+      });
+    });
+
+    // Scroll Reveal Animation
+    const reveals = document.querySelectorAll(".reveal");
+    window.addEventListener("scroll", () => {
+      reveals.forEach(el => {
+        let windowHeight = window.innerHeight;
+        let elementTop = el.getBoundingClientRect().top;
+        let elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+          el.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
